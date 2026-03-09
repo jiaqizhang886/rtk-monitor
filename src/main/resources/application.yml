@@ -1,10 +1,10 @@
 server:
-  port: 8080
+  port: 9231
 
 
 app:
   udp:
-    port: 7000
+    port: 9234
     buffer-size: 65507
     thread-pool-size: 20
   device-map:

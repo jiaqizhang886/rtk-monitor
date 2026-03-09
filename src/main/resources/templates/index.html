@@ -16,15 +16,44 @@
             <div class="card shadow-sm">
                 <div class="card-header">人員設備</div>
                 <div class="card-body">
-                    <p><strong>設備編號：</strong><span id="personnel-deviceId">-</span></p>
-                    <p><strong>UTC：</strong><span id="personnel-utc">-</span></p>
-                    <p><strong>WGS84 緯度：</strong><span id="personnel-lat">-</span></p>
-                    <p><strong>WGS84 經度：</strong><span id="personnel-lon">-</span></p>
-                    <p><strong>定位質量：</strong><span id="personnel-fix">-</span></p>
-                    <p><strong>衛星數：</strong><span id="personnel-sat">-</span></p>
-                    <p><strong>電量：</strong><span id="personnel-battery">-</span></p>
-                    <p><strong>HK1980：</strong><span id="personnel-hk">-</span></p>
-                    <button class="btn btn-primary" onclick="convertDevice('personnel')">WGS84 → HK1980</button>
+                    <table class="table table-sm table-bordered small">
+                        <tbody>
+                        <tr><th>原始報文</th><td id="personnel-rawMessage" style="word-break: break-all; white-space: pre-wrap;">-</td>
+                        </tr>
+                        <tr><th>設備編號</th><td id="personnel-deviceId">-</td></tr>
+                        <tr><th>設備類型</th><td id="personnel-deviceType">-</td></tr>
+                        <tr><th>UTC時間</th><td id="personnel-utcTime">-</td></tr>
+
+                        <tr><th>緯度(度分)</th><td id="personnel-latDm">-</td></tr>
+                        <tr><th>緯度半球</th><td id="personnel-latDir">-</td></tr>
+                        <tr><th>經度(度分)</th><td id="personnel-lonDm">-</td></tr>
+                        <tr><th>經度半球</th><td id="personnel-lonDir">-</td></tr>
+
+                        <tr><th>WGS84緯度</th><td id="personnel-latitude">-</td></tr>
+                        <tr><th>WGS84經度</th><td id="personnel-longitude">-</td></tr>
+
+                        <tr><th>定位質量指示</th><td id="personnel-fixQuality">-</td></tr>
+                        <tr><th>衛星數量</th><td id="personnel-satelliteCount">-</td></tr>
+                        <tr><th>水平精度因子</th><td id="personnel-hdop">-</td></tr>
+                        <tr><th>海拔高度</th><td id="personnel-altitude">-</td></tr>
+                        <tr><th>海拔高度單位</th><td id="personnel-altitudeUnit">-</td></tr>
+                        <tr><th>大地水準面高度</th><td id="personnel-geoidHeight">-</td></tr>
+                        <tr><th>大地水準面高度單位</th><td id="personnel-geoidUnit">-</td></tr>
+                        <tr><th>差分時間</th><td id="personnel-dgpsAge">-</td></tr>
+                        <tr><th>校驗和</th><td id="personnel-checksum">-</td></tr>
+                        <tr><th>設備電量</th><td id="personnel-battery">-</td></tr>
+                        <tr><th>衛星信號強度</th><td id="personnel-signal">-</td></tr>
+                        <tr><th>保留位1</th><td id="personnel-reserve1">-</td></tr>
+                        <tr><th>保留位2</th><td id="personnel-reserve2">-</td></tr>
+                        <tr><th>保留位3</th><td id="personnel-reserve3">-</td></tr>
+                        <tr><th>接收時間</th><td id="personnel-receivedAt">-</td></tr>
+                        <tr><th>HK1980</th><td id="personnel-hk">-</td></tr>
+                        </tbody>
+                    </table>
+
+                    <button class="btn btn-primary" onclick="convertDevice('personnel')">
+                        WGS84 → HK1980
+                    </button>
                 </div>
             </div>
         </div>
@@ -34,18 +63,47 @@
             <div class="card shadow-sm">
                 <div class="card-header">車載設備</div>
                 <div class="card-body">
-                    <p><strong>設備編號：</strong><span id="vehicle-deviceId">-</span></p>
-                    <p><strong>UTC：</strong><span id="vehicle-utc">-</span></p>
-                    <p><strong>WGS84 緯度：</strong><span id="vehicle-lat">-</span></p>
-                    <p><strong>WGS84 經度：</strong><span id="vehicle-lon">-</span></p>
-                    <p><strong>定位質量：</strong><span id="vehicle-fix">-</span></p>
-                    <p><strong>衛星數：</strong><span id="vehicle-sat">-</span></p>
-                    <p><strong>電量：</strong><span id="vehicle-battery">-</span></p>
-                    <p><strong>HK1980：</strong><span id="vehicle-hk">-</span></p>
-                    <button class="btn btn-success" onclick="convertDevice('vehicle')">WGS84 → HK1980</button>
+                    <table class="table table-sm table-bordered small">
+                        <tbody>
+                        <tr><th>原始報文</th><td id="vehicle-rawMessage" style="word-break: break-all; white-space: pre-wrap;">-</td></tr>
+                        <tr><th>設備編號</th><td id="vehicle-deviceId">-</td></tr>
+                        <tr><th>設備類型</th><td id="vehicle-deviceType">-</td></tr>
+                        <tr><th>UTC時間</th><td id="vehicle-utcTime">-</td></tr>
+
+                        <tr><th>緯度(度分)</th><td id="vehicle-latDm">-</td></tr>
+                        <tr><th>緯度半球</th><td id="vehicle-latDir">-</td></tr>
+                        <tr><th>經度(度分)</th><td id="vehicle-lonDm">-</td></tr>
+                        <tr><th>經度半球</th><td id="vehicle-lonDir">-</td></tr>
+
+                        <tr><th>WGS84緯度</th><td id="vehicle-latitude">-</td></tr>
+                        <tr><th>WGS84經度</th><td id="vehicle-longitude">-</td></tr>
+
+                        <tr><th>定位質量指示</th><td id="vehicle-fixQuality">-</td></tr>
+                        <tr><th>衛星數量</th><td id="vehicle-satelliteCount">-</td></tr>
+                        <tr><th>水平精度因子</th><td id="vehicle-hdop">-</td></tr>
+                        <tr><th>海拔高度</th><td id="vehicle-altitude">-</td></tr>
+                        <tr><th>海拔高度單位</th><td id="vehicle-altitudeUnit">-</td></tr>
+                        <tr><th>大地水準面高度</th><td id="vehicle-geoidHeight">-</td></tr>
+                        <tr><th>大地水準面高度單位</th><td id="vehicle-geoidUnit">-</td></tr>
+                        <tr><th>差分時間</th><td id="vehicle-dgpsAge">-</td></tr>
+                        <tr><th>校驗和</th><td id="vehicle-checksum">-</td></tr>
+                        <tr><th>設備電量</th><td id="vehicle-battery">-</td></tr>
+                        <tr><th>衛星信號強度</th><td id="vehicle-signal">-</td></tr>
+                        <tr><th>保留位1</th><td id="vehicle-reserve1">-</td></tr>
+                        <tr><th>保留位2</th><td id="vehicle-reserve2">-</td></tr>
+                        <tr><th>保留位3</th><td id="vehicle-reserve3">-</td></tr>
+                        <tr><th>接收時間</th><td id="vehicle-receivedAt">-</td></tr>
+                        <tr><th>HK1980</th><td id="vehicle-hk">-</td></tr>
+                        </tbody>
+                    </table>
+
+                    <button class="btn btn-success" onclick="convertDevice('vehicle')">
+                        WGS84 → HK1980
+                    </button>
                 </div>
             </div>
         </div>
+
     </div>
 </div>
 

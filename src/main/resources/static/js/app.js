@@ -1,17 +1,41 @@
 function setText(id, value) {
-    document.getElementById(id).innerText = value ?? '-';
+    const el = document.getElementById(id);
+    if (el) {
+        el.innerText = value ?? '-';
+    }
 }
-
 
 function updateCard(prefix, data) {
+    setText(`${prefix}-rawMessage`, data.rawMessage);
     setText(`${prefix}-deviceId`, data.deviceId);
-    setText(`${prefix}-utc`, data.utcTime);
-    setText(`${prefix}-lat`, data.latitude);
-    setText(`${prefix}-lon`, data.longitude);
-    setText(`${prefix}-fix`, data.fixQuality);
-    setText(`${prefix}-sat`, data.satelliteCount);
+    setText(`${prefix}-deviceType`, data.deviceType);
+    setText(`${prefix}-utcTime`, data.utcTime);
+
+    setText(`${prefix}-latDm`, data.latDm);
+    setText(`${prefix}-latDir`, data.latDir);
+    setText(`${prefix}-lonDm`, data.lonDm);
+    setText(`${prefix}-lonDir`, data.lonDir);
+
+    setText(`${prefix}-latitude`, data.latitude);
+    setText(`${prefix}-longitude`, data.longitude);
+
+    setText(`${prefix}-fixQuality`, data.fixQuality);
+    setText(`${prefix}-satelliteCount`, data.satelliteCount);
+    setText(`${prefix}-hdop`, data.hdop);
+    setText(`${prefix}-altitude`, data.altitude);
+    setText(`${prefix}-altitudeUnit`, data.altitudeUnit);
+    setText(`${prefix}-geoidHeight`, data.geoidHeight);
+    setText(`${prefix}-geoidUnit`, data.geoidUnit);
+    setText(`${prefix}-dgpsAge`, data.dgpsAge);
+    setText(`${prefix}-checksum`, data.checksum);
     setText(`${prefix}-battery`, data.battery);
+    setText(`${prefix}-signal`, data.signal);
+    setText(`${prefix}-reserve1`, data.reserve1);
+    setText(`${prefix}-reserve2`, data.reserve2);
+    setText(`${prefix}-reserve3`, data.reserve3);
+    setText(`${prefix}-receivedAt`, data.receivedAt);
 }
+
 
 
 function loadLatest() {

@@ -24,28 +24,42 @@ private final WebSocketPushService webSocketPushService;
 
 
 public DeviceReading saveReading(GnggaData data) {
-DeviceType type = DeviceClassifier.classify(data.getDeviceId(), properties);
+    DeviceType type = DeviceClassifier.classify(data.getDeviceId(), properties);
 
+    DeviceReading reading = DeviceReading.builder()
+            .rawMessage(data.getRaw())
+            .deviceId(data.getDeviceId())
+            .deviceType(type)
+            .utcTime(data.getUtcTime())
 
-DeviceReading reading = DeviceReading.builder()
-.deviceId(data.getDeviceId())
-.deviceType(type)
-.utcTime(data.getUtcTime())
-.latitude(coordinateService.toLatitude(data))
-.longitude(coordinateService.toLongitude(data))
-.fixQuality(data.getFixQuality())
-.satelliteCount(data.getSatelliteCount())
-.hdop(data.getHdop())
-.altitude(data.getAltitude())
-.battery(data.getBattery())
-.signal(data.getSignal())
-.receivedAt(LocalDateTime.now())
-.build();
+            .latDm(data.getLatDm())
+            .latDir(data.getLatDir())
+            .lonDm(data.getLonDm())
+            .lonDir(data.getLonDir())
 
+            .latitude(coordinateService.toLatitude(data))
+            .longitude(coordinateService.toLongitude(data))
 
-repository.save(reading);
-webSocketPushService.pushLatest(reading);
-return reading;
+            .fixQuality(data.getFixQuality())
+            .satelliteCount(data.getSatelliteCount())
+            .hdop(data.getHdop())
+            .altitude(data.getAltitude())
+            .altitudeUnit(data.getAltitudeUnit())
+            .geoidHeight(data.getGeoidHeight())
+            .geoidUnit(data.getGeoidUnit())
+            .dgpsAge(data.getDgpsAge())
+            .checksum(data.getChecksum())
+            .battery(data.getBattery())
+            .signal(data.getSignal())
+            .reserve1(data.getReserve1())
+            .reserve2(data.getReserve2())
+            .reserve3(data.getReserve3())
+            .receivedAt(LocalDateTime.now())
+            .build();
+
+    repository.save(reading);
+    webSocketPushService.pushLatest(reading);
+    return reading;
 }
 
 
