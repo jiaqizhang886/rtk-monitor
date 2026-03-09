@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+
+app:
+  udp:
+    port: 7000
+    buffer-size: 65507
+    thread-pool-size: 20
+  device-map:
+    personnel-device-id: PERSON001
+    vehicle-device-id: CAR001
+  geodetic:
+    base-url: https://www.geodetic.gov.hk/transform/v2/
+
+
+spring:
+  thymeleaf:
+    cache: false

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RTK 實時監控</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container py-4">
+    <h2 class="mb-4">RTK 實時定位監控</h2>
+
+
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header">人員設備</div>
+                <div class="card-body">
+                    <p><strong>設備編號：</strong><span id="personnel-deviceId">-</span></p>
+                    <p><strong>UTC：</strong><span id="personnel-utc">-</span></p>
+                    <p><strong>WGS84 緯度：</strong><span id="personnel-lat">-</span></p>
+                    <p><strong>WGS84 經度：</strong><span id="personnel-lon">-</span></p>
+                    <p><strong>定位質量：</strong><span id="personnel-fix">-</span></p>
+                    <p><strong>衛星數：</strong><span id="personnel-sat">-</span></p>
+                    <p><strong>電量：</strong><span id="personnel-battery">-</span></p>
+                    <p><strong>HK1980：</strong><span id="personnel-hk">-</span></p>
+                    <button class="btn btn-primary" onclick="convertDevice('personnel')">WGS84 → HK1980</button>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header">車載設備</div>
+                <div class="card-body">
+                    <p><strong>設備編號：</strong><span id="vehicle-deviceId">-</span></p>
+                    <p><strong>UTC：</strong><span id="vehicle-utc">-</span></p>
+                    <p><strong>WGS84 緯度：</strong><span id="vehicle-lat">-</span></p>
+                    <p><strong>WGS84 經度：</strong><span id="vehicle-lon">-</span></p>
+                    <p><strong>定位質量：</strong><span id="vehicle-fix">-</span></p>
+                    <p><strong>衛星數：</strong><span id="vehicle-sat">-</span></p>
+                    <p><strong>電量：</strong><span id="vehicle-battery">-</span></p>
+                    <p><strong>HK1980：</strong><span id="vehicle-hk">-</span></p>
+                    <button class="btn btn-success" onclick="convertDevice('vehicle')">WGS84 → HK1980</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/stompjs@2.3.3/lib/stomp.min.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
